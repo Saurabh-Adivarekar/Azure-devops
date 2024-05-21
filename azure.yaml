@@ -32,6 +32,7 @@ jobs:
               docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/mynginx:latest
             readyTimeout: '20000'
 
+
       
 
 
