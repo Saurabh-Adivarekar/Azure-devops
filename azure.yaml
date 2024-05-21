@@ -17,3 +17,20 @@ jobs:
           command: 'buildAndPush'
           Dockerfile: './Dockerfile'
           buildContext: '.'
+          tags: 'Mynginx'
+
+  - job: B
+    dependsOn: A
+    steps:
+        - task: SSH@0
+          inputs:
+            sshEndpoint: 'azuredemopipelineconnection'
+            runOptions: 'commands'
+            commands: |
+              docker pull saurabhdemoregistry.azurecr.io/Mynginx:latest
+              docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/Mynginx:latest
+            readyTimeout: '20000'
+
+      
+
+
