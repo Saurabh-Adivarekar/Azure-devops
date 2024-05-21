@@ -18,14 +18,10 @@ steps:
     Dockerfile: 'Dockerfile'
 
 
-- task: SSH@0
+- task: Docker@2
+  displayName: 'Run Docker Container'
   inputs:
-    sshEndpoint: 'azuredemopipelineconnection'
-    runOptions: 'commands'
-    commands: 'echo "hello world" > hello.txt'
-    readyTimeout: '20000'
-
-
-- task: DockerInstaller@0
-  inputs:
-    dockerVersion: '17.09.0-ce'
+    containerRegistry: 'saurabh'
+    repository: 'saurabhDemoRegistry'
+    command: 'run'
+    runOptions: '-d -p 80:80 saurabh/saurabhDemoRegistry:latest'
