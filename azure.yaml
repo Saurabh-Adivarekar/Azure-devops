@@ -17,7 +17,8 @@ jobs:
           command: 'buildAndPush'
           Dockerfile: './Dockerfile'
           buildContext: '.'
-          tags: 'saurabhdemoregistry.azurecr.io/mynginx'
+          imageName: 'saurabhdemoregistry.azurecr.io/mynginx'
+          tags: 'latest'
 
   - job: B
     dependsOn: A
