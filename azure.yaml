@@ -27,6 +27,7 @@ jobs:
             sshEndpoint: 'azuredemopipelineconnection'
             runOptions: 'commands'
             commands: |
+              docker login saurabhdemoregistry.azurecr.io
               docker pull saurabhdemoregistry.azurecr.io/mynginx:latest
               docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/mynginx:latest
             readyTimeout: '20000'
