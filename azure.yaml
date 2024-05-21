@@ -16,3 +16,11 @@ steps:
     repository: 'saurabhDemoRegistry'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
+
+
+- task: SSH@0
+  inputs:
+    sshEndpoint: 'azuredemopipelineconnection'
+    runOptions: 'commands'
+    commands: 'echo "hello world" > hello.txt'
+    readyTimeout: '20000'
