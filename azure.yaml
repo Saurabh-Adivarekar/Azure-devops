@@ -17,7 +17,7 @@ jobs:
           command: 'buildAndPush'
           Dockerfile: './Dockerfile'
           buildContext: '.'
-          tags: 'mynginx'
+          tags: 'saurabhdemoregistry.azurecr.io/mynginx'
 
   - job: B
     dependsOn: A
@@ -28,9 +28,9 @@ jobs:
             runOptions: 'commands'
             commands: |
               az acr login --name saurabhdemoregistry
-              docker pull saurabhdemoregistry.azurecr.io/mynginx:sha256:1be1f3afef6c13295b59ea61837c0cb9d9b75a9e381aba5e3dd15b662a1fe0e8
-              docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/mynginx:sha256:1be1f3afef6c13295b59ea61837c0cb9d9b75a9e381aba5e3dd15b662a1fe0e8
-            readyTimeout: '20000'
+              docker pull saurabhdemoregistry.azurecr.io/mynginx:latest
+              docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/mynginx:latest
+              readyTimeout: '20000'
 
 
       
