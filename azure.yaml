@@ -24,3 +24,8 @@ steps:
     runOptions: 'commands'
     commands: 'echo "hello world" > hello.txt'
     readyTimeout: '20000'
+
+
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
