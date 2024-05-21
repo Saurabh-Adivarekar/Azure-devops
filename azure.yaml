@@ -30,7 +30,7 @@ jobs:
             commands: |
               az acr login --name saurabhdemoregistry
               docker pull saurabhdemoregistry.azurecr.io/mynginx:latest
-              docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/mynginx:latest
+              docker run -d -p 80:80 --name mynginx-con saurabhdemoregistry.azurecr.io/saurabhdemoregistry:latest
               readyTimeout: '20000'
 
 
